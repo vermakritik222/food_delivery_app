@@ -1,0 +1,17 @@
+.visitorsBoard {
+    margin-left: 70px;
+    padding-top: 5px;
+    > .visitorsBoard__main {
+        > h1 {
+            font-weight: 600;
+        }
+        > .visitorsBoard__content {
+            display: flex;
+            max-height: 85vh;
+            flex-wrap: wrap;
+            // justify-content: space-between;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+.menuCard {
+    margin: 10px 0;
+    .menuCard__cover {
+        display: flex;
+        align-items: center;
+        > .menuCard__img {
+            margin-right: 10px;
+        }
+        > .menuCard__content {
+            > .menuCard__contentbtnbox {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                > .menuCard__name {
+                    font-weight: 600;
+                }
+            }
+
+            > .menuCard__ratingBox {
+                display: flex;
+                align-items: center;
+                > p {
+                    color: gray;
+                    margin-left: 15px;
+                }
+            }
+
+            > .menuCard__price {
+                margin: 2px 0;
+                font-weight: 300;
+            }
+            > .menuCard__description {
+                max-width: 35em;
+                font-size: 15px;
+                font-weight: lighter;
+                > span {
+                    color: #ef4f5f;
+                    font-weight: 600;
+                    &:hover {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

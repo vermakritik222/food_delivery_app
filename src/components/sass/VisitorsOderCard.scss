@@ -1,0 +1,56 @@
+.visitorsOderCard {
+    padding: 20px 25px 30px 25px;
+    margin: 10px;
+    border-left: 4px solid #ef4f5f;
+    // width: 23em;
+    border-radius: 0 10px 10px 0;
+    transition: box-shadow 300ms ease-in, transform 300ms ease-in;
+    > .visitorsOderCard__img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        object-fit: contain;
+        margin-right: 10px;
+        > img {
+            object-fit: contain;
+            height: 100px;
+            // width: 100%;
+        }
+    }
+    > .visitorsOderCard__main {
+        .visitorsOderCard__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            > h3 {
+                display: flex;
+                align-items: center;
+                > span {
+                    margin-left: 7px;
+                }
+            }
+            > .visitorsOderCard__oder_id {
+                font-size: 13px;
+                margin-left: 5px;
+                font-weight: 400;
+                color: grey;
+            }
+        }
+
+        > .visitorsOderCard__costumerComment {
+            > p {
+                font-size: 15px;
+            }
+            > p:last-child {
+                font-size: 14px;
+                margin-left: 10px;
+            }
+        }
+    }
+    &:hover {
+        // background-color: #ef4f5f13;
+        cursor: pointer;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        transform: scale(1.005);
+    }
+}

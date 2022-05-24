@@ -1,0 +1,25 @@
+.visitorsScreen {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    > .visitorsScreen__logo {
+        margin-left: 10px;
+        margin-top: 10px;
+        > img {
+            object-fit: contain;
+            height: 40px;
+        }
+    }
+    > .VisitorsScreen__main {
+        width: 100vw;
+        // display: flex;
+        > div {
+            flex: 0 1 auto;
+            > .visitorsScreen__containerOne {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    }
+}

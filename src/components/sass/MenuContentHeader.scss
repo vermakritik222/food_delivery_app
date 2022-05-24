@@ -1,0 +1,22 @@
+.menuContentHeader {
+    z-index: 10;
+    background-color: white;
+    .menuContentHeader__head {
+        display: flex;
+        padding: 5px;
+        align-items: center;
+        border-bottom: 2px solid gray;
+        margin-bottom: 5px;
+        > div {
+            padding: 15px;
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.menuContentHeader__head_active {
+    color: #ef4f5f;
+    border-radius: 10px;
+    // background-color: #ef4f5f3c;
+    // border-bottom: 2px solid #ef4f5f;
+}

@@ -1,0 +1,87 @@
+@import "../../util/animation/animation";
+.venderOderDis {
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2d2d2da1;
+    > .venderOderDis__card {
+        animation: animateOnLodeScale 400ms ease-in;
+        height: 85%;
+        width: 75%;
+        background-color: white;
+        border-radius: 10px;
+        padding: 10px 20px;
+        > .venderOderDis__header {
+            display: flex;
+            justify-content: space-between;
+            > .venderOderDis__oderName {
+                font-weight: 500;
+                > span {
+                    margin-left: 10px;
+                    font-weight: 400;
+                    color: #646464;
+                    font-size: 17px;
+                    &:hover {
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        > .venderOderDis__oderDetails {
+            margin-top: 20px;
+            > h3 {
+                font-weight: 500;
+            }
+            > div {
+                display: flex;
+                align-items: center;
+                > .venderOderDis__oderDetailsG {
+                    > p {
+                        text-transform: capitalize;
+                        margin-top: 3px;
+                    }
+                }
+                > .venderOderDis__oderDetails-Space {
+                    width: 200px;
+                }
+            }
+        }
+        > .venderOderDis__oderInfo {
+            display: flex;
+            margin-top: 10px;
+            > .venderOderDis__oderInfoItem {
+                margin: 0 5px;
+            }
+            > .venderOderDis__oderInfoItem:first-child {
+                margin: 0px;
+                margin-right: 5px !important;
+            }
+        }
+        > .venderOderDis__oderItemContainer {
+            height: 56%;
+            > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                padding: 0 20px 0 0;
+                height: 90%;
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }
+        }
+        > .venderOderDis__oderAccept {
+            display: flex;
+            justify-content: flex-end;
+            > button:first-child {
+                margin-right: 30px;
+            }
+        }
+    }
+}

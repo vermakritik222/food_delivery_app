@@ -1,0 +1,18 @@
+.itemBar {
+    position: absolute;
+    top: 10px;
+    // overflow-y: hidden;
+    right: 10px;
+    background-color: #ef4f5f;
+    padding: 7px 10px;
+    border-radius: 10px;
+    color: #ffff;
+    display: flex;
+    > .itemBar__item {
+        margin: 0px 3px;
+    }
+}
+.itemBar__iconbtn {
+    color: #ffff;
+    background-color: #ef4f5f;
+}

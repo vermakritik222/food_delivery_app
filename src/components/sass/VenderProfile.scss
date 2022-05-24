@@ -1,0 +1,41 @@
+.venderProfile {
+    z-index: 99;
+    position: absolute;
+    right: 0px;
+    top: -11px;
+    transform-origin: top right;
+    transform: rotate(90deg);
+    transition: transform 500ms ease-in, top 500ms ease-in;
+    border-radius: 20px;
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ef4f5f;
+    color: #ffff;
+
+    padding: 30px;
+
+    .venderProfile__img {
+        height: 150px;
+        // border: 2px solid rgb(255, 255, 255);
+        width: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > img {
+            object-fit: contain;
+            height: 150px;
+        }
+    }
+    > .venderProfile__content {
+        margin-top: 20px;
+        width: 100%;
+        > p {
+            margin-top: 5px;
+            font-size: 1.15rem;
+        }
+    }
+}

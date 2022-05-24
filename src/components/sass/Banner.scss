@@ -1,0 +1,52 @@
+.banner {
+    > .banner__container1 {
+        display: flex;
+        > .banner__bigImg {
+            object-fit: contain;
+            overflow: hidden;
+            margin-right: 5px;
+            > img {
+                height: 400px;
+                cursor: pointer;
+                transition: transform 1000ms ease;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        > .banner__container2 {
+            display: flex;
+            > div {
+                > .banner_smallImg {
+                    object-fit: contain;
+                    overflow: hidden;
+                    margin-right: 5px;
+                    > img {
+                        height: 200px;
+                        cursor: pointer;
+                        transition: transform 1000ms ease;
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+                > .banner_morePhotos {
+                    position: relative;
+                    > .banner_morePhotosBG {
+                        position: absolute;
+                        height: 98%;
+                        width: 100%;
+                        cursor: pointer;
+                        background-color: rgba(0, 0, 0, 0.45);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        > p {
+                            color: rgb(255, 255, 255);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
