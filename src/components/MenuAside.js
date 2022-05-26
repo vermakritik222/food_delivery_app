@@ -31,15 +31,12 @@ function MenuAside(props) {
           <li className="menuAside__item_active">
             <Link to="#">Recommended</Link>
           </li>
+
           {list?.map((el) => (
-            <li>
+            <li key={`${el}_${Math.floor(Math.random() * 999) + 1000}`}>
               <Link to="#">{el}</Link>
             </li>
           ))}
-
-          {/* <li>
-            <Link to="#">Match Day Meal</Link>
-          </li> */}
         </ul>
       </div>
     </div>
