@@ -4,3 +4,17 @@
         max-width: 1200px;
     }
 }
+.menuContent {
+    position: sticky;
+    > .menuContent__content {
+        display: flex;
+        > .menuContent__main {
+            > .menuContent__main_section {
+                > h2 {
+                    letter-spacing: 0.5px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./sass/MenuAside.scss";
 
 function MenuAside(props) {
-  const { active } = props;
+  const { active, list } = props;
   const itemList = useRef();
 
   useEffect(() => {
@@ -31,12 +31,15 @@ function MenuAside(props) {
           <li className="menuAside__item_active">
             <Link to="#">Recommended</Link>
           </li>
-          <li>
-            <Link to="#">What’s New</Link>
-          </li>
-          <li>
+          {list?.map((el) => (
+            <li>
+              <Link to="#">{el}</Link>
+            </li>
+          ))}
+
+          {/* <li>
             <Link to="#">Match Day Meal</Link>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>

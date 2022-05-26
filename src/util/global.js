@@ -1,4 +1,4 @@
-exports.dynamicSort = (property) => {
+const dynamicSort = (property) => {
   var sortOrder = 1;
   if (property[0] === "-") {
     sortOrder = -1;
@@ -11,7 +11,7 @@ exports.dynamicSort = (property) => {
   };
 };
 
-exports.groupBy = (arr, property) => {
+const groupBy = (arr, property) => {
   return arr?.reduce(function (memo, x) {
     if (!memo[x[property]]) {
       memo[x[property]] = [];
@@ -19,4 +19,14 @@ exports.groupBy = (arr, property) => {
     memo[x[property]].push(x);
     return memo;
   }, {});
+};
+
+exports.handelDataForMenu = (menu) => {
+  menu?.sort(dynamicSort("Category"));
+  let groupedData = groupBy(menu, "Category");
+  const arrKey = [];
+  for (var key in groupedData) {
+    arrKey.push(key);
+  }
+  return { arrKey, groupedData };
 };
