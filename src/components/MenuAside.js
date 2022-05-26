@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "./sass/MenuAside.scss";
 
 function MenuAside(props) {
@@ -17,7 +18,7 @@ function MenuAside(props) {
       for (let i = 0; i < list.length; i++) {
         if (list[i].children[0].innerText === active)
           list[i].classList.add("menuAside__item_active");
-        console.log(list[i].children[0].innerText);
+        // console.log(list[i].children[0].innerText);
       }
     };
     changeActive(active);
@@ -28,13 +29,13 @@ function MenuAside(props) {
       <div className="menuAside__cover">
         <ul ref={itemList}>
           <li className="menuAside__item_active">
-            <a href="#">Recommended</a>
+            <Link to="#">Recommended</Link>
           </li>
           <li>
-            <a href="#">What’s New</a>
+            <Link to="#">What’s New</Link>
           </li>
           <li>
-            <a href="#">Match Day Meal</a>
+            <Link to="#">Match Day Meal</Link>
           </li>
         </ul>
       </div>

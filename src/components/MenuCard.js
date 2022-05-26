@@ -1,5 +1,5 @@
 import { Button, ButtonGroup } from "@mui/material";
-import React from "react";
+import React, { memo } from "react";
 import "./sass/MenuCard.scss";
 
 function MenuCard(props) {
@@ -8,7 +8,7 @@ function MenuCard(props) {
   function giveNumber(star) {
     const str = [];
     for (let i = 0; i < star; i++) {
-      str.push(<img src="/images/yellowStar.svg" alt="" />);
+      str.push(<img key={i} src="/images/yellowStar.svg" alt="" />);
     }
     return str;
   }
@@ -17,7 +17,7 @@ function MenuCard(props) {
     <div className="menuCard">
       <div className="menuCard__cover">
         <div className="menuCard__img">
-          <img src={img} alt="" srcset="" />
+          <img src={img} alt="" />
         </div>
         <div className="menuCard__content">
           <div className="menuCard__contentbtnbox">
@@ -42,4 +42,5 @@ function MenuCard(props) {
   );
 }
 
-export default MenuCard;
+// export default MenuCard;
+export default memo(MenuCard);

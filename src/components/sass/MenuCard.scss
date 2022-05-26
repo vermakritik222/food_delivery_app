@@ -5,6 +5,9 @@
         align-items: center;
         > .menuCard__img {
             margin-right: 10px;
+            > img {
+                height: 100px;
+            }
         }
         > .menuCard__content {
             > .menuCard__contentbtnbox {
@@ -13,6 +16,8 @@
                 align-items: center;
                 > .menuCard__name {
                     font-weight: 600;
+                    max-width: 65%;
+                    text-transform: capitalize;
                 }
             }
 

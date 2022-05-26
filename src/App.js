@@ -1,32 +1,33 @@
 import "./App.css";
 import "./util/animation/Animation.scss";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import MenuScreen from "./pages/MenuScreen";
 import VenderScreen from "./pages/VenderScreen";
 
 function App() {
+  // console.log("check from app");
   return (
     <div className="App">
-      <Router>
+      <BrowserRouter>
         <Switch>
           <Route path="/" exact>
             <Home />
           </Route>
 
-          <Route path="/menu">
+          <Route path="/restaurant/:metadata">
             <MenuScreen />
           </Route>
 
-          <Route path="/vender">
-            <VenderScreen />
-          </Route>
+          {/* <Route path="/vender"> */}
+          {/* <VenderScreen /> */}
+          {/* </Route> */}
 
-          <Route path="/oderid">
-            <VenderScreen oderId />
-          </Route>
+          {/* <Route path="/oderid"> */}
+          {/* <VenderScreen oderId /> */}
+          {/* </Route> */}
         </Switch>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }

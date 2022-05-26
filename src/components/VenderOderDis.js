@@ -7,13 +7,15 @@ import {
   ClearRounded,
 } from "@mui/icons-material";
 import { Button, IconButton } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import OderItem from "./OderItem";
 import "./sass/VenderOderDis.scss";
 
 function VenderOderDis() {
   const history = useHistory();
+  const [showWA, setShowWA] = useState(false);
+  const [showPH, setShowPH] = useState(false);
   return (
     <div className="venderOderDis">
       <div className="venderOderDis__card">
@@ -52,19 +54,58 @@ function VenderOderDis() {
         </div>
         <div className="venderOderDis__oderInfo">
           <div className="venderOderDis__oderInfoItem">
-            <Button startIcon={<WhatsApp />} style={{ color: "green" }}>
+            <Button
+              onClick={() => {
+                setShowWA(true);
+              }}
+              startIcon={<WhatsApp />}
+              style={
+                showWA
+                  ? { display: "none" }
+                  : { display: "flex", color: "green" }
+              }
+            >
               WhatsApp
             </Button>
-            {/* <Button startIcon={<WhatsApp color="success" />}>
+            <Button
+              onClick={() => {
+                setShowWA(false);
+              }}
+              startIcon={<WhatsApp color="success" />}
+              style={
+                showWA
+                  ? { display: "flex", color: "green" }
+                  : { display: "none" }
+              }
+            >
               +91 9876543219
-            </Button> */}
+            </Button>
           </div>
           <div className="venderOderDis__oderInfoItem">
-            <Button startIcon={<Phone />}> Phone</Button>
-            {/* <Button startIcon={<Phone />}>+91 9876543219</Button> */}
+            <Button
+              onClick={() => {
+                setShowPH(true);
+              }}
+              style={showPH ? { display: "none" } : { display: "flex" }}
+              startIcon={<Phone />}
+            >
+              Phone
+            </Button>
+            <Button
+              onClick={() => {
+                setShowPH(false);
+              }}
+              style={showPH ? { display: "flex" } : { display: "none" }}
+              startIcon={<Phone />}
+            >
+              +91 9876543219
+            </Button>
           </div>
           <div className="venderOderDis__oderInfoItem">
-            <Button startIcon={<ChatOutlined style={{ color: "#ef4f5f" }} />}>
+            <Button
+              startIcon={<ChatOutlined style={{ color: "#ef4f5f" }} />}
+              style={{ color: "#ef4f5f" }}
+            >
               Chat
             </Button>
           </div>

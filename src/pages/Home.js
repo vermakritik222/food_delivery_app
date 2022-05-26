@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import Nav from "../components/Nav";
+import { getRestaurants } from "../http/index";
 import "./sass/Home.scss";
+
 function Home() {
+  const [restaurants, setRestaurants] = useState();
+
+  useEffect(() => {
+    let fetchData = true;
+
+    // console.log("check from home");
+    const getdata = async () => {
+      const res = await getRestaurants();
+      setRestaurants(res?.data?.data);
+    };
+    if (fetchData) {
+      getdata();
+    }
+    return () => {
+      fetchData = false;
+    };
+  }, []);
+
+  // console.log(restaurants);
   return (
     <div className="home">
       <Nav searchBar />
@@ -10,24 +31,36 @@ function Home() {
         <div className="hone__row">
           <h3>Trending</h3>
           <div>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            {/* <Card /> */}
+            {restaurants?.map((el) => {
+              return (
+                <Card
+                  key={el._id}
+                  id={el.RestaurantMetadataID}
+                  title={el.RestaurantName}
+                  img={`http://localhost:8000${el.CoverImg}`}
+                  rating={el.Rating}
+                  address={el.FullAdders}
+                />
+              );
+            })}
           </div>
         </div>
 
         <div className="hone__row">
           <h3>Restaurants for You</h3>
           <div>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {restaurants?.map((el) => {
+              return (
+                <Card
+                  key={el._id}
+                  id={el.RestaurantMetadataID}
+                  title={el.RestaurantName}
+                  img={`http://localhost:8000${el.CoverImg}`}
+                  rating={el.Rating}
+                  address={el.FullAdders}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
