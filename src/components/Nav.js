@@ -1,5 +1,6 @@
-import { TextField, MenuItem, IconButton } from "@mui/material";
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { TextField, MenuItem, IconButton } from "@mui/material";
 import { ShoppingCartOutlined } from "@mui/icons-material";
 import "./sass/Nav.scss";
 
@@ -27,6 +28,7 @@ const currencies = [
 ];
 
 function Nav(props) {
+  const history = useHistory();
   const { searchBar } = props;
   const [currency, setCurrency] = React.useState("LN");
 
@@ -36,7 +38,12 @@ function Nav(props) {
 
   return (
     <div className="nav">
-      <div className="nav__logoBox">
+      <div
+        className="nav__logoBox"
+        onClick={() => {
+          history.push("/");
+        }}
+      >
         <img src="/images/logo.png" alt="" className="nav__logo" />
       </div>
       {searchBar ? (
@@ -60,7 +67,11 @@ function Nav(props) {
       )}
 
       <div className="nav__loginSinupbtn">
-        <IconButton>
+        <IconButton
+          onClick={() => {
+            history.push("/cart");
+          }}
+        >
           <ShoppingCartOutlined />
         </IconButton>
         <button className="nav__login btn">Log in</button>

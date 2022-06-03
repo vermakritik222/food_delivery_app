@@ -1,0 +1,45 @@
+.cartCard {
+    display: flex;
+    margin: 10px 0;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    > .cartCard__content {
+        width: 85%;
+        padding: 15px 0;
+        margin-left: 5px;
+        > .cartCard__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            > h3 {
+                margin-right: 10px;
+            }
+            > div {
+                display: flex;
+                align-items: center;
+                > span {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 5px;
+                }
+            }
+        }
+        > .cartCard__price {
+            margin-left: 18px;
+            color: gray;
+            margin-top: 5px;
+        }
+        > .cartCard__counterSystem {
+            display: flex;
+            align-items: center;
+            margin-left: 18px;
+            margin-top: 10px;
+            > .cartCard__chip {
+                margin-right: 15px;
+            }
+        }
+    }
+}

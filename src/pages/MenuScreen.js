@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getRestaurantsMetadata } from "../http/index";
+import { handelDataForMenu } from "../util/global";
 import Banner from "../components/Banner";
 import MenuAside from "../components/MenuAside";
 import MenuCard from "../components/MenuCard";
 import MenuContentHeader from "../components/MenuContentHeader";
 import Nav from "../components/Nav";
 import TextBox from "../components/TextBox";
-import { getRestaurantsMetadata } from "../http/index";
-import { handelDataForMenu } from "../util/global";
 import "./sass/MenuScreen.scss";
 
 function MenuScreen() {
@@ -65,6 +65,7 @@ function MenuScreen() {
                       return (
                         <MenuCard
                           key={el._id}
+                          ids={el._id}
                           name={el.DishName}
                           img={`http://localhost:8000${el.Img}`}
                           votes={el.votes || " __"}

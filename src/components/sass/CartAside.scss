@@ -1,0 +1,76 @@
+.cartAside {
+    margin: 10px 15px;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 20px;
+    > .cartAside__cover {
+        > h2 {
+            text-transform: capitalize;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        > .cartAside__content {
+            width: 100%;
+            box-sizing: border-box;
+            > .cartAside__itemsBox {
+                width: 100%;
+                border-bottom: 2px solid gray;
+                padding-bottom: 5px;
+                > div {
+                    padding-bottom: 5px;
+                    border-bottom: 2px solid gray;
+                    > p {
+                        margin: 5px 0;
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                }
+                > p {
+                    margin: 5px 0;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                > .cartAside__totalAmount {
+                    font-weight: 500;
+                    margin-top: 10px;
+                }
+                > .cartAside__discount {
+                    font-weight: 600 !important;
+                    color: rgb(0, 179, 0);
+                    margin-top: 10px;
+                }
+            }
+            > h2 {
+                margin-top: 15px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-weight: 600;
+                font-size: 1.36rem;
+            }
+        }
+        > .cartAside_btn {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 10px 0;
+            font-size: 1.3rem;
+            border: none;
+            background: #ef4f5f;
+            font-weight: 700;
+            color: #ffff;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: background 200ms ease-in;
+            &:hover {
+                background: #dd4958;
+            }
+        }
+    }
+}

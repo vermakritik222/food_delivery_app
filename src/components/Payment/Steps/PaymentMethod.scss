@@ -1,0 +1,33 @@
+.paymentMethod {
+    > .paymentMethod__heading {
+        color: #ef4f5f;
+        text-transform: capitalize;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    > .paymentMethod__container {
+        > form {
+            > .paymentMethod__card {
+                width: 400px;
+                max-width: 90%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                border: 2px solid gray;
+                border-radius: 10px;
+                padding: 15px 20px;
+                margin: 10px 0px;
+                > input {
+                    margin-right: 10px;
+                }
+                > .paymentMethod__methodLabel {
+                    display: flex;
+                    align-items: center;
+                    > .paymentMethod__left {
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

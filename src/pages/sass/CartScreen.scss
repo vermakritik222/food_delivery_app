@@ -1,0 +1,27 @@
+.cartScreen__box {
+    background: rgb(240, 240, 240);
+    padding: 20px 30px;
+    border-radius: 10px;
+    max-height: 70vh;
+
+    > .cartScreen_heading {
+        color: #ef4f5f;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #f2c8cd;
+    }
+    > .cartScreen__cardContainer {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        > .cartScreen__items {
+            width: 55%;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            max-height: 60vh;
+            min-width: 450px;
+        }
+        > .cartScreen__aside {
+            width: 39%;
+        }
+    }
+}

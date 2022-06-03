@@ -1,9 +1,16 @@
 import { Button, ButtonGroup } from "@mui/material";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setOder, deleteOder } from "../store/CartSlice";
+import { giveFrequency } from "../util/util";
 import "./sass/MenuCard.scss";
 
 function MenuCard(props) {
-  const { name, img, votes, price, star, description } = props;
+  const { name, img, votes, price, star, description, ids } = props;
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const mapdata = giveFrequency(cart.oder);
+  const [id, setId] = useState(ids);
 
   function giveNumber(star) {
     const str = [];
@@ -23,9 +30,21 @@ function MenuCard(props) {
           <div className="menuCard__contentbtnbox">
             <h3 className="menuCard__name">{name}</h3>
             <ButtonGroup>
-              <Button>-</Button>
-              <Button>ADD</Button>
-              <Button>+</Button>
+              <Button
+                onClick={() => {
+                  dispatch(deleteOder(id));
+                }}
+              >
+                -
+              </Button>
+              <Button>{mapdata.get(id) ? mapdata.get(id) : "ADD"}</Button>
+              <Button
+                onClick={() => {
+                  dispatch(setOder(id));
+                }}
+              >
+                +
+              </Button>
             </ButtonGroup>
           </div>
           <div className="menuCard__ratingBox">

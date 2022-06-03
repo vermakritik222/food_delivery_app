@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  //   baseURL: process.env.REACT_APP_API_BASE_URL,
-  baseURL: "http://localhost:8000/api/v1",
+  baseURL: process.env.REACT_APP_API_BASE_URL,
   withCredentials: true,
   headers: {
     "Content-type": "application/json",
@@ -16,4 +15,8 @@ export const getRestaurants = () => {
 
 export const getRestaurantsMetadata = async (metadataId) => {
   return await api.get(`/restaurants/${metadataId}`);
+};
+
+export const postRestaurantsItemId = async (itemId) => {
+  return await api.post(`/restaurants/itemsdata`, { oderIds: itemId });
 };

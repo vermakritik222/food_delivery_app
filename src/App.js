@@ -1,12 +1,13 @@
-import "./App.css";
-import "./util/animation/Animation.scss";
+import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import MenuScreen from "./pages/MenuScreen";
 import VenderScreen from "./pages/VenderScreen";
+import CartScreen from "./pages/CartScreen";
+import "./util/animation/Animation.scss";
+import "./App.css";
 
 function App() {
-  // console.log("check from app");
   return (
     <div className="App">
       <BrowserRouter>
@@ -19,13 +20,17 @@ function App() {
             <MenuScreen />
           </Route>
 
-          {/* <Route path="/vender"> */}
-          {/* <VenderScreen /> */}
-          {/* </Route> */}
+          <Route path="/vender">
+            <VenderScreen />
+          </Route>
 
-          {/* <Route path="/oderid"> */}
-          {/* <VenderScreen oderId /> */}
-          {/* </Route> */}
+          <Route path="/oderid">
+            <VenderScreen oderId />
+          </Route>
+
+          <Route path="/cart">
+            <CartScreen />
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>
