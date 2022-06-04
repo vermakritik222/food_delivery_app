@@ -4,9 +4,9 @@ import Adders from "./Steps/Adders";
 import End from "./Steps/End";
 import PaymentMethod from "./Steps/PaymentMethod";
 const steps = {
-  1: Adders,
-  2: PaymentMethod,
-  3: End,
+  // 1: Adders,
+  1: PaymentMethod,
+  2: End,
 };
 
 function Payment() {

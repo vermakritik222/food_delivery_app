@@ -1,4 +1,4 @@
-exports.giveFrequency = (arr) => {
+const giveFrequency = (arr) => {
   const map = arr.reduce(
     (acc, e) => acc.set(e, (acc.get(e) || 0) + 1),
     new Map()
@@ -6,7 +6,7 @@ exports.giveFrequency = (arr) => {
   return map;
 };
 
-exports.addQuntToShoppingCartData = (data, quntMap) => {
+const addQuntToShoppingCartData = (data, quntMap) => {
   return data?.map((el) => {
     const qunt = quntMap.get(el._id);
     return {
@@ -15,3 +15,5 @@ exports.addQuntToShoppingCartData = (data, quntMap) => {
     };
   });
 };
+
+export { giveFrequency, addQuntToShoppingCartData };

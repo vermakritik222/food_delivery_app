@@ -33,10 +33,17 @@ export const activateSlice = createSlice({
         state.oder.splice(idx, 1);
       }
     },
+
+    clear: (state, action) => {
+      state.oder = [];
+      state.oderDetails = [];
+      state.resId = "";
+      state.resName = "";
+    },
   },
 });
 
-export const { setRes, setOder, deleteOder, setOderDetails } =
+export const { setRes, setOder, deleteOder, setOderDetails, clear } =
   activateSlice.actions;
 
 export default activateSlice.reducer;

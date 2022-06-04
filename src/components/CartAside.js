@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { addQuntToShoppingCartData } from "../util/util";
+// import { addQuntToShoppingCartData } from "../util/util";
 import "./sass/CartAside.scss";
+
+const addQuntToShoppingCartData = (data, quntMap) => {
+  return data?.map((el) => {
+    const qunt = quntMap.get(el._id);
+    return {
+      ...el,
+      qunt,
+    };
+  });
+};
 
 function CartAside(props) {
   const { data, quntData, setShowPaymentSteps } = props;

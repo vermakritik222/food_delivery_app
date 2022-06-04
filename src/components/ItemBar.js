@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./sass/ItemBar.scss";
 import { Chat, KeyboardDoubleArrowLeft } from "@mui/icons-material";
 import { Avatar, IconButton } from "@mui/material";
 import VenderProfile from "./VenderProfile";
+import "./sass/ItemBar.scss";
 
 function ItemBar() {
   const [renderProfile, setRenderProfile] = useState(false);

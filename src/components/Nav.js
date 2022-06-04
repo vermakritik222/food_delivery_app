@@ -26,10 +26,13 @@ const currencies = [
     label: "Chandni Chowk, New Delhi",
   },
 ];
+const styleWhite = {
+  color: "#ffff",
+};
 
 function Nav(props) {
   const history = useHistory();
-  const { searchBar } = props;
+  const { searchBar, white } = props;
   const [currency, setCurrency] = React.useState("LN");
 
   const handleChange = (el) => {
@@ -44,7 +47,11 @@ function Nav(props) {
           history.push("/");
         }}
       >
-        <img src="/images/logo.png" alt="" className="nav__logo" />
+        <img
+          src="/images/logo.png"
+          alt=""
+          className={white ? "nav__logo nav__whiteImg" : "nav__logo"}
+        />
       </div>
       {searchBar ? (
         <div className="nav__input">
@@ -68,14 +75,30 @@ function Nav(props) {
 
       <div className="nav__loginSinupbtn">
         <IconButton
+          style={white && { display: "none" }}
           onClick={() => {
             history.push("/cart");
           }}
         >
           <ShoppingCartOutlined />
         </IconButton>
-        <button className="nav__login btn">Log in</button>
-        <button className="nav__sing_up btn">Sing up</button>
+        <button
+          onClick={() => {
+            history.push("/signup");
+          }}
+          className={white ? "nav__login btn nav__white" : "nav__login btn"}
+        >
+          {" "}
+          <span>Log in</span>{" "}
+        </button>
+        <button
+          onClick={() => {
+            history.push("/signup");
+          }}
+          className={white ? "nav__sing_up btn nav__white" : "nav__sing_up btn"}
+        >
+          <span> Sing up</span>
+        </button>
         {/* <Avatar className="nav__avatar" /> */}
       </div>
     </div>

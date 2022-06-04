@@ -11,7 +11,7 @@ import TextBox from "../components/TextBox";
 import "./sass/MenuScreen.scss";
 
 function MenuScreen() {
-  const { metadata } = useParams();
+  const { resId } = useParams();
   const [hover, setHover] = useState("Recommended");
   const [data, setData] = useState([]);
   const [arrKey, setArrKey] = useState([]);
@@ -21,7 +21,7 @@ function MenuScreen() {
     let fetchData = true;
 
     const getData = async () => {
-      const res = await getRestaurantsMetadata(metadata);
+      const res = await getRestaurantsMetadata(resId);
       setData(res.data);
       const { arrKey, groupedData } = handelDataForMenu(res.data.Menu);
       setArrKey(arrKey);
@@ -35,7 +35,7 @@ function MenuScreen() {
     return () => {
       fetchData = false;
     };
-  }, [metadata]);
+  }, [resId]);
 
   return (
     <div className="menuScreen">

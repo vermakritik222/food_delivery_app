@@ -1,6 +1,7 @@
 .nav {
     // box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 0 0 20px 20px;
+    z-index: 999;
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
@@ -22,9 +23,21 @@
             font-size: 1.1rem;
             padding: 10px 20px;
             transition: all 500ms ease-in-out;
+            > span {
+                font-weight: 600;
+            }
             &:hover {
-                background-color: rgb(255, 255, 255);
+                background-color: rgb(243, 243, 243);
             }
         }
     }
+}
+.nav__white {
+    color: #ffff;
+    &:hover {
+        color: gray;
+    }
+}
+.nav__whiteImg {
+    filter: invert(100%);
 }

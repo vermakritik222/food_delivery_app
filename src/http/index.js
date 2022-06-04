@@ -20,3 +20,7 @@ export const getRestaurantsMetadata = async (metadataId) => {
 export const postRestaurantsItemId = async (itemId) => {
   return await api.post(`/restaurants/itemsdata`, { oderIds: itemId });
 };
+
+export const postOder = async (data) => {
+  return await api.post(`/oder/place`, { data });
+};

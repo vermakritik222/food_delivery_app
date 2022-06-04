@@ -4,8 +4,10 @@ import Home from "./pages/Home";
 import MenuScreen from "./pages/MenuScreen";
 import VenderScreen from "./pages/VenderScreen";
 import CartScreen from "./pages/CartScreen";
+import Signup from "./pages/Signup";
 import "./util/animation/Animation.scss";
 import "./App.css";
+import VenderMenu from "./pages/VenderMenu";
 
 function App() {
   return (
@@ -16,12 +18,20 @@ function App() {
             <Home />
           </Route>
 
-          <Route path="/restaurant/:metadata">
+          <Route path="/signup" exact>
+            <Signup />
+          </Route>
+
+          <Route path="/restaurant/:resId">
             <MenuScreen />
           </Route>
 
-          <Route path="/vender">
+          <Route path="/vender" exact>
             <VenderScreen />
+          </Route>
+
+          <Route path="/vendermenu">
+            <VenderMenu />
           </Route>
 
           <Route path="/oderid">

@@ -1,3 +1,6 @@
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { Button, IconButton } from "@mui/material";
 import {
   Close,
   Phone,
@@ -6,9 +9,6 @@ import {
   Done,
   ClearRounded,
 } from "@mui/icons-material";
-import { Button, IconButton } from "@mui/material";
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import OderItem from "./OderItem";
 import "./sass/VenderOderDis.scss";
 

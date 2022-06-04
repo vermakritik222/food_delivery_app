@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./sass/VenderNav.scss";
 import {
   DashboardOutlined,
@@ -10,13 +11,22 @@ import {
 } from "@mui/icons-material";
 import { Button } from "@mui/material";
 
-function VenderNav() {
+function VenderNav(prams) {
+  const { active } = prams;
   const [drag, setDrag] = useState(false);
+  const history = useHistory();
+
   return (
     <div className="visitorsNav" style={drag ? {} : { left: "-270px" }}>
       <ul className="visitorsNav__list">
         <li>
-          <div className="visitorsNav__item visitorsNav__active">
+          <div
+            className={
+              active === 0
+                ? "visitorsNav__item visitorsNav__active"
+                : "visitorsNav__item"
+            }
+          >
             <div className="visitorsNav__icon">
               <DashboardOutlined />
             </div>
@@ -24,7 +34,13 @@ function VenderNav() {
           </div>
         </li>
         <li>
-          <div className="visitorsNav__item ">
+          <div
+            className={
+              active === 1
+                ? "visitorsNav__item visitorsNav__active"
+                : "visitorsNav__item"
+            }
+          >
             <div className="visitorsNav__icon">
               <BarChartOutlined />
             </div>
@@ -32,7 +48,13 @@ function VenderNav() {
           </div>
         </li>
         <li>
-          <div className="visitorsNav__item">
+          <div
+            className={
+              active === 2
+                ? "visitorsNav__item visitorsNav__active"
+                : "visitorsNav__item"
+            }
+          >
             <div className="visitorsNav__icon">
               <AddBusinessOutlined />
             </div>
@@ -40,7 +62,14 @@ function VenderNav() {
           </div>
         </li>
         <li>
-          <div className="visitorsNav__item">
+          <div
+            className={
+              active === 3
+                ? "visitorsNav__item visitorsNav__active"
+                : "visitorsNav__item"
+            }
+            onClick={() => history.push("/vender/menu")}
+          >
             <div className="visitorsNav__icon">
               <MenuBookRounded />
             </div>

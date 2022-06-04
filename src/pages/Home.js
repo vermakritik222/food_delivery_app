@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { getRestaurants } from "../http/index";
 import Card from "../components/Card";
 import Nav from "../components/Nav";
-import { getRestaurants } from "../http/index";
 import "./sass/Home.scss";
 
 function Home() {
@@ -35,7 +35,7 @@ function Home() {
               return (
                 <Card
                   key={el._id}
-                  id={el.RestaurantMetadataID}
+                  id={el._id}
                   title={el.RestaurantName}
                   img={`http://localhost:8000${el.CoverImg}`}
                   rating={el.Rating}

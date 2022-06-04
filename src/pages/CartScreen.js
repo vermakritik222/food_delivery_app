@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { setOderDetails } from "../store/CartSlice";
 import { giveFrequency } from "../util/util";
 import { postRestaurantsItemId } from "../http/index";
-import { setOderDetails } from "../store/CartSlice";
 import Nav from "../components/Nav";
 import CartAside from "../components/CartAside";
 import CartCard from "../components/CartCard";
-import "./sass/CartScreen.scss";
 import Payment from "../components/Payment/Payment";
+import "./sass/CartScreen.scss";
 
 function CartScreen() {
   const cart = useSelector((state) => state.cart);
@@ -28,7 +28,7 @@ function CartScreen() {
     };
     getData();
   }, []);
-
+  console.log(cart);
   return (
     <div>
       <Nav />
