@@ -37,7 +37,13 @@ function MenuCard(props) {
               >
                 -
               </Button>
-              <Button>{mapdata.get(id) ? mapdata.get(id) : "ADD"}</Button>
+              <Button
+                onClick={() => {
+                  dispatch(setOder(id));
+                }}
+              >
+                {mapdata.get(id) ? mapdata.get(id) : "ADD"}
+              </Button>
               <Button
                 onClick={() => {
                   dispatch(setOder(id));

@@ -1,7 +1,10 @@
 import React from "react";
 import { Button } from "@mui/material";
+import ShareIcon from "@mui/icons-material/Share";
+import BookmarksIcon from "@mui/icons-material/Bookmarks";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import ReviewsOutlinedIcon from "@mui/icons-material/ReviewsOutlined";
 import "./sass/TextBox.scss";
-
 function TextBox() {
   return (
     <div className="textBox fixed-content">
@@ -17,19 +20,27 @@ function TextBox() {
 
       <div className="textBox__btnCover">
         <div className="textBox__btn">
-          <Button variant="contained">Add Review</Button>
+          <Button startIcon={<ReviewsOutlinedIcon />} variant="contained">
+            Add Review
+          </Button>
         </div>
 
         <div className="textBox__btn">
-          <Button variant="outlined">Direction</Button>
+          <Button startIcon={<LocationOnIcon />} variant="outlined">
+            Direction
+          </Button>
         </div>
 
         <div className="textBox__btn">
-          <Button variant="outlined">Bookmark</Button>
+          <Button startIcon={<BookmarksIcon />} variant="outlined">
+            Bookmark
+          </Button>
         </div>
 
         <div className="textBox__btn">
-          <Button variant="outlined">Share</Button>
+          <Button startIcon={<ShareIcon />} variant="outlined">
+            Share
+          </Button>
         </div>
       </div>
     </div>

@@ -8,6 +8,8 @@ import Signup from "./pages/Signup";
 import "./util/animation/Animation.scss";
 import "./App.css";
 import VenderMenu from "./pages/VenderMenu";
+import VenderState from "./pages/VenderState";
+import VenderProduct from "./pages/VenderProduct";
 
 function App() {
   return (
@@ -30,8 +32,20 @@ function App() {
             <VenderScreen />
           </Route>
 
-          <Route path="/vendermenu">
+          <Route path="/vendermenu" exact>
             <VenderMenu />
+          </Route>
+
+          <Route path="/vendermenu/:id">
+            <VenderMenu hasId />
+          </Route>
+
+          <Route path="/venderstat">
+            <VenderState />
+          </Route>
+
+          <Route path="/venderproduct">
+            <VenderProduct />
           </Route>
 
           <Route path="/oderid">

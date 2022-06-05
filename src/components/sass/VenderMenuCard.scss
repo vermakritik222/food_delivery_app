@@ -1,0 +1,33 @@
+.venderMenuCard {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 0 10px 10px 0;
+    transition: box-shadow 300ms ease-in, transform 300ms ease-in, border-radius 300ms ease-in,
+        border-left 300ms ease-in;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-left: 4px solid #ef4f5f;
+    cursor: pointer;
+    &:hover {
+        cursor: pointer;
+        border-radius: 10px;
+        border-left: 4px solid transparent;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        transform: scale(1.005);
+    }
+}
+.venderMenuCard__content {
+    margin-left: 10px;
+    > .venderMenuCard__name {
+        text-transform: capitalize;
+    }
+}
+.venderMenuCard__ratingBox {
+    display: flex;
+    align-items: center;
+    > p {
+        margin-left: 10px;
+    }
+}

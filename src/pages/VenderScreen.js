@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Tab, Tabs } from "@mui/material";
 import FoodBankIcon from "@mui/icons-material/FoodBank";
-import VenderOderDis from "../components/VenderOderDis";
 import FastfoodIcon from "@mui/icons-material/Fastfood";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
+import VenderOderDis from "../components/VenderOderDis";
 import ItemBar from "../components/ItemBar";
 import VisitorsBoard from "../components/VisitorsBoard";
 import VenderNav from "../components/VenderNav";
@@ -16,6 +16,7 @@ function VenderScreen(props) {
   const handleChange = (x, y) => {
     setTab(y);
   };
+
   return (
     <div className="visitorsScreen">
       <div className="visitorsScreen__logo">

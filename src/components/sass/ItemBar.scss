@@ -10,6 +10,7 @@
     display: flex;
     > .itemBar__item {
         margin: 0px 3px;
+        transition: all 500ms ease-in;
     }
 }
 .itemBar__iconbtn {

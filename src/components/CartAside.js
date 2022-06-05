@@ -16,6 +16,7 @@ function CartAside(props) {
   const { data, quntData, setShowPaymentSteps } = props;
   const [res, setRes] = useState(null);
   const [total, setTotal] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [discount, setDiscount] = useState(0);
 
   useEffect(() => {

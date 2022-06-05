@@ -9,7 +9,7 @@ import {
   KeyboardDoubleArrowLeft,
   MenuBookRounded,
 } from "@mui/icons-material";
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 
 function VenderNav(prams) {
   const { active } = prams;
@@ -26,6 +26,7 @@ function VenderNav(prams) {
                 ? "visitorsNav__item visitorsNav__active"
                 : "visitorsNav__item"
             }
+            onClick={() => history.push("/vender")}
           >
             <div className="visitorsNav__icon">
               <DashboardOutlined />
@@ -40,6 +41,7 @@ function VenderNav(prams) {
                 ? "visitorsNav__item visitorsNav__active"
                 : "visitorsNav__item"
             }
+            onClick={() => history.push("/venderstat")}
           >
             <div className="visitorsNav__icon">
               <BarChartOutlined />
@@ -54,6 +56,7 @@ function VenderNav(prams) {
                 ? "visitorsNav__item visitorsNav__active"
                 : "visitorsNav__item"
             }
+            onClick={() => history.push("/venderproduct")}
           >
             <div className="visitorsNav__icon">
               <AddBusinessOutlined />
@@ -68,7 +71,7 @@ function VenderNav(prams) {
                 ? "visitorsNav__item visitorsNav__active"
                 : "visitorsNav__item"
             }
-            onClick={() => history.push("/vender/menu")}
+            onClick={() => history.push("/vendermenu")}
           >
             <div className="visitorsNav__icon">
               <MenuBookRounded />
@@ -83,9 +86,19 @@ function VenderNav(prams) {
         onClick={() => {
           drag ? setDrag(false) : setDrag(true);
         }}
-        style={drag ? {} : { left: "280px" }}
+        style={drag ? {} : { left: "275px" }}
       >
-        <Button
+        <IconButton
+          // size="large"
+          style={{ color: "#ffff", background: "#ef4f5f" }}
+        >
+          {drag ? (
+            <KeyboardDoubleArrowLeft style={{ fontSize: "25px" }} />
+          ) : (
+            <KeyboardDoubleArrowRight style={{ fontSize: "25px" }} />
+          )}
+        </IconButton>
+        {/* <Button
           style={{ color: "#ffff", background: "#ef4f5f" }}
           startIcon={
             drag ? (
@@ -94,7 +107,7 @@ function VenderNav(prams) {
               <KeyboardDoubleArrowRight />
             )
           }
-        ></Button>
+        ></Button> */}
       </div>
     </div>
   );
