@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import "./sass/VenderNav.scss";
+import { IconButton } from "@mui/material";
 import {
   DashboardOutlined,
   AddBusinessOutlined,
@@ -9,7 +9,7 @@ import {
   KeyboardDoubleArrowLeft,
   MenuBookRounded,
 } from "@mui/icons-material";
-import { Button, IconButton } from "@mui/material";
+import "./sass/VenderNav.scss";
 
 function VenderNav(prams) {
   const { active } = prams;

@@ -12,6 +12,7 @@ function PaymentMethod(props) {
   const dispatch = useDispatch();
 
   const placeOder = async () => {
+    console.log(cart);
     await postOder(cart);
     dispatch(clear());
     setStep(step + 1);
@@ -47,7 +48,7 @@ function PaymentMethod(props) {
           </label>
           {/*  */}
           <label className="paymentMethod__card" htmlFor="cc">
-            <input type="radio" name="PM" id="cc" checked />
+            <input type="radio" name="PM" id="cc" />
             <div className="paymentMethod__methodLabel">
               <div className="paymentMethod__left">
                 <AccountBalance />

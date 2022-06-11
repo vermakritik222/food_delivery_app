@@ -22,5 +22,9 @@ export const postRestaurantsItemId = async (itemId) => {
 };
 
 export const postOder = async (data) => {
-  return await api.post(`/oder/place`, { data });
+  return await api.post(`/oder/place`, data);
+};
+
+export const login = async (data) => {
+  return await api.post(`/auth/login`, data);
 };

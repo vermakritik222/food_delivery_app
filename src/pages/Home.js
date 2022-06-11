@@ -37,7 +37,7 @@ function Home() {
                   key={el._id}
                   id={el._id}
                   title={el.RestaurantName}
-                  img={`http://localhost:8000${el.CoverImg}`}
+                  img={`${process.env.REACT_APP_API_BASE_URL_IMG}${el.CoverImg}`}
                   rating={el.Rating}
                   address={el.FullAdders}
                 />
@@ -55,7 +55,7 @@ function Home() {
                   key={el._id}
                   id={el.RestaurantMetadataID}
                   title={el.RestaurantName}
-                  img={`http://localhost:8000${el.CoverImg}`}
+                  img={`${process.env.REACT_APP_API_BASE_URL_IMG}${el.CoverImg}`}
                   rating={el.Rating}
                   address={el.FullAdders}
                 />

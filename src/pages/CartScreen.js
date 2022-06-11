@@ -41,7 +41,7 @@ function CartScreen() {
                 <CartCard
                   key={el._id}
                   ids={el._id}
-                  img={`http://localhost:8000${el.Img}`}
+                  img={`${process.env.REACT_APP_API_BASE_URL_IMG}${el.Img}`}
                   title={el.DishName}
                   veg={el.vg_ng}
                   price={el.price}

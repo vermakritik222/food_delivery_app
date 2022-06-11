@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
 import Nav from "../components/Nav";
 import "./sass/Signup.scss";
+import { login } from "../http/index";
 
 const styleBtn = {
   margin: "20px auto",
@@ -11,6 +12,17 @@ const styleBtn = {
 
 function Signup() {
   const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handelClick = async () => {
+    const res = await login({ email, password });
+    console.log(res?.data);
+    if (res?.data.status === "success") {
+      history.push("/");
+    }
+  };
+
   return (
     <div className="signup">
       <Nav white />
@@ -18,14 +30,22 @@ function Signup() {
         <div className="signup__content">
           <h1>Sign Up</h1>
           <TextField
+            value={email}
+            onChange={(el) => {
+              setEmail(el.target.value);
+            }}
             margin="normal"
             // sx={{ input: { color: "white" } }}
             className="signup__input"
-            label="User Name"
+            label="Email"
             variant="outlined"
           />
 
           <TextField
+            value={password}
+            onChange={(el) => {
+              setPassword(el.target.value);
+            }}
             margin="normal"
             // sx={{ input: { color: "white" } }}
             className="signup__input"
@@ -36,7 +56,7 @@ function Signup() {
             style={styleBtn}
             variant="contained"
             onClick={() => {
-              history.push("/");
+              handelClick();
             }}
           >
             <h3 style={{ color: "#ffff" }}>Sign Up</h3>{" "}

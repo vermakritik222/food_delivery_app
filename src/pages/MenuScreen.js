@@ -67,7 +67,7 @@ function MenuScreen() {
                           key={el._id}
                           ids={el._id}
                           name={el.DishName}
-                          img={`http://localhost:8000${el.Img}`}
+                          img={`${process.env.REACT_APP_API_BASE_URL_IMG}${el.Img}`}
                           votes={el.votes || " __"}
                           price={el.price}
                           star={el.Rating}
