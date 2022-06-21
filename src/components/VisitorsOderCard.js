@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggleShowWindow } from "../store/toggleSlice";
 import { setOder } from "../store/currentOderSlice";
 import "./sass/VisitorsOderCard.scss";
@@ -21,7 +21,6 @@ function VisitorsOderCard(props) {
   const { coverImg, oderName, veg, oderId, price, placedTime, pStatus, data } =
     props;
   const dispatch = useDispatch();
-  const oder = useSelector((state) => state.currentOderSlice.oder);
 
   return (
     <div
