@@ -29,6 +29,10 @@ function App() {
           </Route>
 
           <Route path="/vender" exact>
+            <Signup vender />
+          </Route>
+
+          <Route path="/vender/dashboard">
             <VenderScreen />
           </Route>
 

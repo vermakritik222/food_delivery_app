@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import "./sass/VenderProfile.scss";
 
 function VenderProfile(props) {
+  const user = useSelector((state) => state.user);
+  console.log(user);
   const { style, funRenderProfile } = props;
   return (
     <div
@@ -15,9 +18,17 @@ function VenderProfile(props) {
         <img src="/images/icons/default_person.jpg" alt="" />
       </div>
       <div className="venderProfile__content">
-        <p>Vender name : Xyz Abc </p>
-        <p>Company name : Burger King </p>
-        <p>vender Id : #xxxxxxxxxxxxxxxxxxxx </p>
+        <p style={{ textTransform: "capitalize" }}>
+          Vender Name : {user.username}{" "}
+        </p>
+        <p>Company Name : Burger King </p>
+        <p>
+          {" "}
+          Vender Id : <span style={{ fontSize: "16px" }}>
+            {" "}
+            #{user.resId}
+          </span>{" "}
+        </p>
       </div>
     </div>
   );

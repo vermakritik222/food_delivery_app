@@ -28,3 +28,7 @@ export const postOder = async (data) => {
 export const login = async (data) => {
   return await api.post(`/auth/login`, data);
 };
+
+export const getOders = async () => {
+  return await api.get(`/restaurants/oders`);
+};

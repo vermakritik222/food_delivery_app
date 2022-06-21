@@ -12,7 +12,7 @@ function PaymentMethod(props) {
   const dispatch = useDispatch();
 
   const placeOder = async () => {
-    console.log(cart);
+    console.log("Your Oder ----->", cart);
     await postOder(cart);
     dispatch(clear());
     setStep(step + 1);

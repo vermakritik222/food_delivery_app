@@ -1,8 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import venderDashboard from "./VenderSlice";
 import cart from "./CartSlice";
-// import activate from './activateSlice';
+import user from "./userSlice";
+import toggler from "./toggleSlice";
+import currentOderSlice from "./currentOderSlice";
 
-export const store = configureStore({
-  reducer: { venderDashboard, cart },
+const store = configureStore({
+  reducer: { venderDashboard, cart, user, toggler, currentOderSlice },
 });
+export default store;

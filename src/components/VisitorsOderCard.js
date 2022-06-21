@@ -1,5 +1,7 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleShowWindow } from "../store/toggleSlice";
+import { setOder } from "../store/currentOderSlice";
 import "./sass/VisitorsOderCard.scss";
 
 const images = {
@@ -16,13 +18,18 @@ const images = {
 };
 
 function VisitorsOderCard(props) {
-  const history = useHistory();
-  const { coverImg, oderName, veg, oderId, price, placedTime, pStatus } = props;
+  const { coverImg, oderName, veg, oderId, price, placedTime, pStatus, data } =
+    props;
+  const dispatch = useDispatch();
+  const oder = useSelector((state) => state.currentOderSlice.oder);
+
   return (
     <div
       className="visitorsOderCard"
       onClick={() => {
-        history.push("/oderid");
+        dispatch(toggleShowWindow(true));
+        dispatch(setOder(data));
+        console.log("Current Oder----->", data);
       }}
     >
       <div className="visitorsOderCard__img">

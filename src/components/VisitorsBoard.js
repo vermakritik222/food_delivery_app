@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import VisitorsOderCard from "./VisitorsOderCard";
+import { getOders } from "../http/index";
 import "./sass/VisitorsBoard.scss";
 
 function VisitorsBoard(prams) {
   const { data } = prams;
+  const [oders, setOders] = useState();
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await getOders();
+        console.log("oder list --->", res.data);
+        setOders(res.data.Oder);
+      } catch (error) {
+        console.log("error while getting oders -->", error);
+      }
+    };
+    getData();
+    return () => {};
+  }, []);
 
   return (
     <>
@@ -23,87 +38,19 @@ function VisitorsBoard(prams) {
             </div>
           ) : (
             <div className="visitorsBoard__content">
-              <VisitorsOderCard
-                coverImg={6}
-                oderName="Burger"
-                veg={true}
-                oderId="5646848484d4cwe84846"
-                price="345"
-                placedTime="2:67PM"
-                pStatus="Unpaired"
-              />
-              <VisitorsOderCard
-                coverImg={3}
-                oderName="Burger"
-                veg={false}
-                oderId="5646848484d4cwe84846"
-                price="345"
-                placedTime="2:67PM"
-                pStatus="Unpaired"
-              />
-              <VisitorsOderCard
-                coverImg={1}
-                oderName="Burger"
-                veg={true}
-                oderId="5646848484d4cwe84846"
-                price="345"
-                placedTime="2:67PM"
-                pStatus="Unpaired"
-              />
-              <VisitorsOderCard
-                coverImg={9}
-                oderName="Burger"
-                veg={true}
-                oderId="5646848484d4cwe84846"
-                price="345"
-                placedTime="2:67PM"
-                pStatus="Unpaired"
-              />
-              <VisitorsOderCard
-                coverImg={5}
-                oderName="Burger"
-                veg={true}
-                oderId="5646848484d4cwe84846"
-                price="345"
-                placedTime="1:67 PM"
-                pStatus="Unpaired"
-              />
-              <VisitorsOderCard
-                coverImg={2}
-                oderName="Burger"
-                veg={true}
-                oderId="5646848484d4cwe84846"
-                price="345"
-                placedTime="2:27 PM"
-                pStatus="paired"
-              />
-              <VisitorsOderCard
-                coverImg={6}
-                oderName="Burger"
-                veg={false}
-                oderId="5646848484d4cwe84846"
-                price="345"
-                placedTime="2:67 PM"
-                pStatus="Unpaired"
-              />
-              <VisitorsOderCard
-                coverImg={4}
-                oderName="Burger"
-                veg={true}
-                oderId="5646848484d4cwe84846"
-                price="345"
-                placedTime="2:67 PM"
-                pStatus="Unpaired"
-              />
-              <VisitorsOderCard
-                coverImg={10}
-                oderName="Burger"
-                veg={false}
-                oderId="5646848484d4cwe84846"
-                price="345"
-                placedTime="2:67PM"
-                pStatus="Unpaired"
-              />
+              {oders?.map((el) => (
+                <VisitorsOderCard
+                  data={el}
+                  key={el.data_id}
+                  coverImg={Math.floor(Math.random() * 11)}
+                  oderName={el.oderName}
+                  veg={true}
+                  oderId={el._id}
+                  price="345"
+                  placedTime="2:67PM"
+                  pStatus={el.paymentStatus}
+                />
+              ))}
             </div>
           )}
         </div>

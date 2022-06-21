@@ -2,24 +2,38 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
 import Nav from "../components/Nav";
-import "./sass/Signup.scss";
 import { login } from "../http/index";
+import { setUser } from "../store/userSlice";
+import "./sass/Signup.scss";
+import { useDispatch } from "react-redux";
 
 const styleBtn = {
   margin: "20px auto",
   background: "#ef4f5f",
 };
 
-function Signup() {
+function Signup(props) {
+  const { vender } = props;
+  const dispatch = useDispatch();
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handelClick = async () => {
-    const res = await login({ email, password });
-    console.log(res?.data);
-    if (res?.data.status === "success") {
-      history.push("/");
+    try {
+      const res = await login({ email, password });
+      console.log("user---->", res?.data);
+      const user = res.data.user;
+      if (res?.data.status === "success") {
+        dispatch(setUser(user));
+        if (user.role === "user") {
+          history.push("/");
+        } else {
+          history.push("vender/dashboard");
+        }
+      }
+    } catch (err) {
+      console.log("error while getting the user ---->", err);
     }
   };
 
@@ -28,7 +42,7 @@ function Signup() {
       <Nav white />
       <div className="signup__container">
         <div className="signup__content">
-          <h1>Sign Up</h1>
+          <h1>{vender && "Vender"} Sign Up</h1>
           <TextField
             value={email}
             onChange={(el) => {
@@ -52,13 +66,7 @@ function Signup() {
             label="Password"
             variant="outlined"
           />
-          <Button
-            style={styleBtn}
-            variant="contained"
-            onClick={() => {
-              handelClick();
-            }}
-          >
+          <Button style={styleBtn} variant="contained" onClick={handelClick}>
             <h3 style={{ color: "#ffff" }}>Sign Up</h3>{" "}
           </Button>
 

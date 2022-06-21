@@ -8,11 +8,11 @@ import ItemBar from "../components/ItemBar";
 import VisitorsBoard from "../components/VisitorsBoard";
 import VenderNav from "../components/VenderNav";
 import "./sass/VenderScreen.scss";
+import { useSelector } from "react-redux";
 
 function VenderScreen(props) {
-  const { oderId } = props;
   const [tab, setTab] = useState(1);
-
+  const showWindow = useSelector((state) => state.toggler.showWindow);
   const handleChange = (x, y) => {
     setTab(y);
   };
@@ -57,7 +57,7 @@ function VenderScreen(props) {
         {tab === 1 && <VisitorsBoard />}
         {tab === 2 && <VisitorsBoard data />}
       </div>
-      {oderId ? <VenderOderDis /> : ""}
+      {showWindow && <VenderOderDis />}
     </div>
   );
 }

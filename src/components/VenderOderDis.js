@@ -11,22 +11,26 @@ import {
 } from "@mui/icons-material";
 import OderItem from "./OderItem";
 import "./sass/VenderOderDis.scss";
+import { toggleShowWindow } from "../store/toggleSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function VenderOderDis() {
-  const history = useHistory();
+  const dispatch = useDispatch();
   const [showWA, setShowWA] = useState(false);
   const [showPH, setShowPH] = useState(false);
+  const oder = useSelector((state) => state.currentOderSlice.oder);
+
   return (
     <div className="venderOderDis">
       <div className="venderOderDis__card">
         <div className="venderOderDis__header">
           <h2 className="venderOderDis__oderName">
-            Kritik's Oder <span> #644dsfbfb8d878df</span>
+            Kritik's Oder <span> #{oder._id}</span>
           </h2>
           <div className="venderOderDis__close"></div>
           <IconButton
             onClick={() => {
-              history.push("/vender");
+              dispatch(toggleShowWindow(false));
             }}
           >
             <Close />
@@ -37,7 +41,7 @@ function VenderOderDis() {
           <h3>Oder Details</h3>
           <div className="">
             <div className="venderOderDis__oderDetailsG">
-              <p>Name : Kritik Verma </p>
+              <p>Name : {oder.oderName} </p>
               <p>
                 Odored at : 23:00 <span>2min ago</span>
               </p>
@@ -113,12 +117,9 @@ function VenderOderDis() {
         <div className="venderOderDis__oderItemContainer">
           <h3>Oder Items</h3>
           <div>
-            <OderItem />
-            <OderItem />
-            <OderItem />
-            <OderItem />
-            <OderItem />
-            <OderItem />
+            {oder.oderId.map((el) => (
+              <OderItem key={el} />
+            ))}
           </div>
         </div>
         <div className="venderOderDis__oderAccept">

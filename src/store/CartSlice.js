@@ -5,6 +5,8 @@ const initialState = {
   resId: "",
   oder: [],
   oderDetails: [],
+  paymentStatus: "unpaid",
+  oderName: "Burger",
 };
 
 export const activateSlice = createSlice({
