@@ -71,7 +71,7 @@ function Signup(props) {
           </Button>
 
           <p style={{ color: "white" }}>
-            Dont have an account?{" "}
+            Don't have an account?{" "}
             <span style={{ fontWeight: "bold", cursor: "pointer" }}>Login</span>
             .
           </p>

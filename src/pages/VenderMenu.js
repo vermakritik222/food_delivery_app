@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Tab, Tabs } from "@mui/material";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
@@ -8,14 +8,36 @@ import VenderNav from "../components/VenderNav";
 import VenderMenuPopup from "../components/VenderMenuPopup";
 import MenuBoard from "../components/MenuBoard";
 import "./sass/VenderMenu.scss";
+import { getVender, getItem } from "../http";
+import { restaurantActions } from "../store/restaurantSlice";
+import { useDispatch, useSelector } from "react-redux";
 
-function VenderMenu({ hasId }) {
-  const { id } = useParams();
+function VenderMenu() {
   const [tab, setTab] = useState(1);
-
+  const dispatch = useDispatch();
+  const toggleBox = useSelector((state) => state.restaurantSlice.toggleBox);
   const handleChange = (x, y) => {
     setTab(y);
   };
+
+  useEffect(() => {
+    getVender()
+      .then((el) => {
+        dispatch(restaurantActions.setRestaurant(el.data.data.restaurant));
+        getItem({ ids: el.data.data.restaurant.Menu })
+          .then((el) => {
+            dispatch(restaurantActions.setMenuItems(el.data.data));
+          })
+          .catch((error) => {
+            console.log("error while fetching menu", error);
+          });
+      })
+      .catch((error) => {
+        console.log("error while fetching restaurants", error);
+      });
+
+    return () => {};
+  }, []);
 
   return (
     <div className="venderMenu">
@@ -53,10 +75,10 @@ function VenderMenu({ hasId }) {
             /> */}
           </Tabs>
         </div>
-        {tab === 1 && <MenuBoard />}
-        {tab === 2 && <MenuBoard data />}
+        {tab === 1 && <MenuBoard stock={true} />}
+        {tab === 2 && <MenuBoard stock={false} />}
       </div>
-      {hasId && <VenderMenuPopup />}
+      {toggleBox && <VenderMenuPopup />}
       {/* <VenderMenuPopup /> */}
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Button, IconButton } from "@mui/material";
 import {
@@ -13,12 +13,28 @@ import OderItem from "./OderItem";
 import "./sass/VenderOderDis.scss";
 import { toggleShowWindow } from "../store/toggleSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { getItem, updateOderStatus } from "../http/index";
 
 function VenderOderDis() {
   const dispatch = useDispatch();
   const [showWA, setShowWA] = useState(false);
   const [showPH, setShowPH] = useState(false);
+  const [itemData, setItemData] = useState();
   const oder = useSelector((state) => state.currentOderSlice.oder);
+
+  useEffect(() => {
+    console.log("oder qwd", oder.oderId);
+    getItem({ ids: oder.oderId })
+      .then((el) => {
+        setItemData(el.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log("data", itemData);
+
+    return () => {};
+  }, [oder.oderId]);
 
   return (
     <div className="venderOderDis">
@@ -117,8 +133,8 @@ function VenderOderDis() {
         <div className="venderOderDis__oderItemContainer">
           <h3>Oder Items</h3>
           <div>
-            {oder.oderId.map((el) => (
-              <OderItem key={el} />
+            {itemData?.map((el) => (
+              <OderItem key={el._id} data={el} />
             ))}
           </div>
         </div>
@@ -132,6 +148,15 @@ function VenderOderDis() {
           <Button
             style={{ color: "green" }}
             startIcon={<Done style={{ fontsize: "2rem" }} />}
+            onClick={() => {
+              if (oder.status === "delivered") {
+                return;
+              }
+              const status =
+                oder.status === "preparing" ? "completed" : "delivered";
+              updateOderStatus(oder._id, { status: status });
+              dispatch(toggleShowWindow(false));
+            }}
           >
             ready to go
           </Button>

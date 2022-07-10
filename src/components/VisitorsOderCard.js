@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { toggleShowWindow } from "../store/toggleSlice";
 import { setOder } from "../store/currentOderSlice";
+import { getItem } from "../http/index";
 import "./sass/VisitorsOderCard.scss";
 
 const images = {
@@ -37,9 +38,8 @@ function VisitorsOderCard(props) {
       <div className="visitorsOderCard__main">
         <div className="visitorsOderCard__header">
           <h3>
-            {oderName}{" "}
+            {oderName}
             <span>
-              {" "}
               <img
                 src={
                   veg ? "/images/icons/veg.svg" : "/images/icons/non_veg.svg"

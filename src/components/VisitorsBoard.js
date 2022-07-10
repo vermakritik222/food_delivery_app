@@ -4,12 +4,12 @@ import { getOders } from "../http/index";
 import "./sass/VisitorsBoard.scss";
 
 function VisitorsBoard(prams) {
-  const { data } = prams;
+  const { data, status } = prams;
   const [oders, setOders] = useState();
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await getOders();
+        const res = await getOders(status);
         console.log("oder list --->", res.data);
         setOders(res.data.Oder);
       } catch (error) {

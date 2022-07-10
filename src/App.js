@@ -5,17 +5,18 @@ import MenuScreen from "./pages/MenuScreen";
 import VenderScreen from "./pages/VenderScreen";
 import CartScreen from "./pages/CartScreen";
 import Signup from "./pages/Signup";
-import "./util/animation/Animation.scss";
-import "./App.css";
 import VenderMenu from "./pages/VenderMenu";
 import VenderState from "./pages/VenderState";
 import VenderProduct from "./pages/VenderProduct";
+import "./util/animation/Animation.scss";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Switch>
+          {/*  */}
           <Route path="/" exact>
             <Home />
           </Route>
@@ -40,9 +41,9 @@ function App() {
             <VenderMenu />
           </Route>
 
-          <Route path="/vendermenu/:id">
+          {/* <Route path="/vendermenu/:id">
             <VenderMenu hasId />
-          </Route>
+          </Route> */}
 
           <Route path="/venderstat">
             <VenderState />
@@ -59,6 +60,7 @@ function App() {
           <Route path="/cart">
             <CartScreen />
           </Route>
+          {/*  */}
         </Switch>
       </BrowserRouter>
     </div>

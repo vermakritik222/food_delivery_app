@@ -54,8 +54,9 @@ function VenderScreen(props) {
             />
           </Tabs>
         </div>
-        {tab === 1 && <VisitorsBoard />}
-        {tab === 2 && <VisitorsBoard data />}
+        {tab === 1 && <VisitorsBoard status="preparing" />}
+        {tab === 2 && <VisitorsBoard status="completed" />}
+        {tab === 3 && <VisitorsBoard status="delivered" />}
       </div>
       {showWindow && <VenderOderDis />}
     </div>

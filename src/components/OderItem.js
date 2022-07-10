@@ -3,7 +3,7 @@ import { Done } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import "./sass/OderItem.scss";
 
-function OderItem() {
+function OderItem({ data }) {
   const [prepared, setPrepared] = useState(false);
 
   return (
@@ -16,11 +16,11 @@ function OderItem() {
       </div>
       <div className="oderItem__content">
         <h2>
-          Burger
-          <span>Product Id : #dsgefjbrfeuib98465684</span>{" "}
+          {data.DishName}
+          <span>Product Id : {`#${data._id}`}</span>{" "}
         </h2>
         <p>Quantity : 2</p>
-        <p>Price : $234</p>
+        <p>Price : ${data.price}</p>
         <p>Addons : one extra splice of chess</p>
       </div>
       <IconButton

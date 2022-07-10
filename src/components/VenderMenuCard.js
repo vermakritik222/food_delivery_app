@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./sass/VenderMenuCard.scss";
-
-const star = 4;
-const name = "burger";
-const price = 24;
-const votes = 234;
-const description = "Lorem ipsum dolor sit amet consectetur adipisicing";
+import { restaurantActions } from "../store/restaurantSlice/index";
+import { useDispatch } from "react-redux";
 
 function VenderMenuCard(props) {
-  // const { name, img, votes, price, star, description, ids } = props;
-  const [id, setId] = useState(1);
-  const history = useHistory();
+  const { name, img, votes, price, star, description, data, ids } = props;
+  const dispatch = useDispatch();
   function giveNumber(star) {
     const str = [];
     for (let i = 0; i < star; i++) {
@@ -22,11 +17,14 @@ function VenderMenuCard(props) {
 
   return (
     <div
-      onClick={() => history.push(`/vendermenu/${id}`)}
+      onClick={() => {
+        dispatch(restaurantActions.setToggleBox());
+        dispatch(restaurantActions.setCurrentItem(data));
+      }}
       className="venderMenuCard"
     >
       <div className="VenderMenuCard__img">
-        <img src="/images/food1.avif" alt="" />
+        <img src={img} alt="" />
       </div>
       <div className="venderMenuCard__content">
         <h3 className="venderMenuCard__name">{name}</h3>

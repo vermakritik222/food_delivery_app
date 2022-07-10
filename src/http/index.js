@@ -29,6 +29,22 @@ export const login = async (data) => {
   return await api.post(`/auth/login`, data);
 };
 
-export const getOders = async () => {
-  return await api.get(`/restaurants/oders`);
+export const getOders = async (status) => {
+  return await api.get(`/restaurants/oders?status=${status}`);
+};
+
+export const getItem = async (data) => {
+  return await api.post(`/restaurants/item`, data);
+};
+
+export const updateOderStatus = async (id, data) => {
+  return await api.patch(`/restaurants/updatestatus?id=${id}`, data);
+};
+
+export const getVender = async () => {
+  return await api.get(`/vender/me`);
+};
+
+export const updateitem = async (id, data) => {
+  return await api.patch(`/vender/menus/updateitem?id=${id}`, data);
 };

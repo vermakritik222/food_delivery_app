@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import CloseIcon from "@mui/icons-material/Close";
 import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import {
   Button,
   FormControl,
@@ -12,21 +13,32 @@ import {
   Select,
   TextareaAutosize,
 } from "@mui/material";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import { restaurantActions } from "../store/restaurantSlice";
+import { updateitem } from "../http";
 import "./sass/VenderMenuPopup.scss";
 
 function VenderMenuPopup() {
-  const history = useHistory();
+  const dispatch = useDispatch();
+  const currentItem = useSelector((state) => state.restaurantSlice.currentItem);
   const [editName, setEditName] = useState(false);
   const [editPrice, setEditPrice] = useState(false);
   const [editCategory, setEditCategory] = useState(false);
   const [editDescription, setEditDescription] = useState(false);
-  const [stock, setStock] = useState("is");
+  const [stock, setStock] = useState(true);
+
+  // inputs felids
+  const [dishName, setDishName] = useState();
+  const [price, setPrice] = useState();
+  const [description, setDescription] = useState();
+
   return (
     <div className="venderMenuPopup">
       <div className="venderMenuPopup__main">
         <div className="venderMenuPopup__removeIcon">
-          <IconButton onClick={() => history.push("/vendermenu")} size="large">
+          <IconButton
+            onClick={() => dispatch(restaurantActions.setToggleBox())}
+            size="large"
+          >
             <CloseIcon fontSize="inherit" />
           </IconButton>
         </div>
@@ -35,25 +47,37 @@ function VenderMenuPopup() {
           <div className="venderMenuPopup__header">
             <div>
               <div className="venderMenuPopup__img">
-                <img src="/images/food1.avif" alt="" />
+                <img src={`http://localhost:8000/${currentItem.Img}`} alt="" />
               </div>
 
               <FormControl style={{ marginLeft: "60px" }}>
                 <InputLabel>Availability Status</InputLabel>
                 <Select
-                  style={stock === "is" ? { color: "green" } : { color: "red" }}
+                  style={stock ? { color: "green" } : { color: "red" }}
                   value={stock}
                   label="Availability Status"
                   onChange={(e) => setStock(e.target.value)}
                 >
-                  <MenuItem style={{ color: "green" }} value={"is"}>
+                  <MenuItem style={{ color: "green" }} value={true}>
                     In Stock
                   </MenuItem>
-                  <MenuItem style={{ color: "red" }} value={"os"}>
+                  <MenuItem style={{ color: "red" }} value={false}>
                     Out Of Stock
                   </MenuItem>
                 </Select>
               </FormControl>
+              <Button
+                onClick={() => {
+                  updateitem(currentItem?._id, {
+                    DishName: dishName,
+                    price: price,
+                    Description: description,
+                    inStock: stock,
+                  });
+                }}
+              >
+                save
+              </Button>
             </div>
             <Button
               startIcon={<CameraAltIcon />}
@@ -63,10 +87,16 @@ function VenderMenuPopup() {
             </Button>
 
             <h3>
-              name : {!editName && <span>burger</span>}{" "}
+              Name : {!editName && <span>{currentItem.DishName}</span>}{" "}
               {editName && (
                 <span>
-                  <input type="text" />
+                  <input
+                    type="text"
+                    value={dishName}
+                    onChange={(e) => {
+                      setDishName(e.target.value);
+                    }}
+                  />
                 </span>
               )}{" "}
               <span>
@@ -80,10 +110,14 @@ function VenderMenuPopup() {
               </span>
             </h3>
             <p>
-              price : {!editPrice && <span>$39</span>}{" "}
+              Price : {!editPrice && <span>${currentItem.price}</span>}{" "}
               {editPrice && (
                 <span>
-                  <input type="text" />
+                  <input
+                    type="text"
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                  />
                 </span>
               )}{" "}
               <span>
@@ -98,7 +132,7 @@ function VenderMenuPopup() {
             </p>
           </div>
           <p>
-            Category : {!editCategory && <span>Pasta</span>}{" "}
+            Category : {!editCategory && <span>{currentItem.Category}</span>}{" "}
             {editCategory && (
               <span>
                 <input type="text" />
@@ -129,15 +163,22 @@ function VenderMenuPopup() {
                 </IconButton>
               </span>{" "}
             </h3>
-            <TextareaAutosize
-              aria-label="maximum height"
-              maxRows={6}
-              minRows={6}
-              placeholder="Minimum 3 rows"
-              defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-      ut labore et dolore magna aliqua."
-              style={{ width: 900 }}
-            />
+            {!editDescription ? (
+              <p>{currentItem.Description}</p>
+            ) : (
+              <TextareaAutosize
+                aria-label="maximum height"
+                maxRows={6}
+                minRows={6}
+                placeholder="Minimum 3 rows"
+                defaultValue={currentItem.Description}
+                value={description}
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+                style={{ width: 900 }}
+              />
+            )}
           </div>
         </div>
       </div>
