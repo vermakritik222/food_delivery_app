@@ -5,11 +5,14 @@ import user from "./userSlice";
 import toggler from "./toggleSlice";
 import currentOderSlice from "./currentOderSlice";
 import restaurantSlice from "./restaurantSlice";
+import authSlice from "./authSlice";
+
 const store = configureStore({
   reducer: {
+    authSlice,
+    user,
     venderDashboard,
     cart,
-    user,
     toggler,
     currentOderSlice,
     restaurantSlice: restaurantSlice.reducer,

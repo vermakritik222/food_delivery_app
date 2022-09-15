@@ -29,6 +29,10 @@ export const login = async (data) => {
   return await api.post(`/auth/login`, data);
 };
 
+export const verify = async () => {
+  return await api.get(`/auth/verify`);
+};
+
 export const getOders = async (status) => {
   return await api.get(`/restaurants/oders?status=${status}`);
 };
@@ -48,3 +52,5 @@ export const getVender = async () => {
 export const updateitem = async (id, data) => {
   return await api.patch(`/vender/menus/updateitem?id=${id}`, data);
 };
+
+export default api;

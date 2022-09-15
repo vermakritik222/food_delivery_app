@@ -89,15 +89,15 @@ function Nav(props) {
           className={white ? "nav__login btn nav__white" : "nav__login btn"}
         >
           {" "}
-          <span>Log in</span>{" "}
+          <span>Sing up</span>{" "}
         </button>
         <button
           onClick={() => {
-            history.push("/signup");
+            history.push("/vender");
           }}
           className={white ? "nav__sing_up btn nav__white" : "nav__sing_up btn"}
         >
-          <span> Sing up</span>
+          <span>Sing up as a vender</span>
         </button>
         {/* <Avatar className="nav__avatar" /> */}
       </div>
