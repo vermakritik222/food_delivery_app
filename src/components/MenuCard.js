@@ -1,12 +1,12 @@
 import React, { memo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, ButtonGroup } from "@mui/material";
-import { setOder, deleteOder } from "../store/CartSlice";
+import { setOder, deleteOder, setRestuId, clear } from "../store/CartSlice";
 import { giveFrequency } from "../util/util";
 import "./sass/MenuCard.scss";
 
 function MenuCard(props) {
-  const { name, img, votes, price, star, description, ids } = props;
+  const { name, img, votes, price, star, description, ids, redid } = props;
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const mapdata = giveFrequency(cart.oder);
@@ -18,6 +18,28 @@ function MenuCard(props) {
       str.push(<img key={i} src="/images/yellowStar.svg" alt="" />);
     }
     return str;
+  }
+
+  function checkCartBeforeDispatch(id, resid) {
+    console.log({ cart:cart.resId , resid, boo:cart.resId===resid})
+    if (cart.oder !== [] && cart.resId === "") {
+      dispatch(setOder(id));
+      dispatch(setRestuId(resid));
+    } else if (cart.resId === resid) {
+      dispatch(setOder(id));
+      
+    }
+     else {
+      if (
+        window.confirm("Are you sure you want Replace the items in the cart")
+      ) {
+        dispatch(clear());
+        dispatch(setOder(id));
+        dispatch(setRestuId(resid));
+      } else {
+        return;
+      }
+    }
   }
 
   return (
@@ -46,7 +68,7 @@ function MenuCard(props) {
               </Button>
               <Button
                 onClick={() => {
-                  dispatch(setOder(id));
+                  checkCartBeforeDispatch(id, redid);
                 }}
               >
                 +

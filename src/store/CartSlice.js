@@ -13,9 +13,8 @@ export const activateSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    setRes: (state, action) => {
-      const { name, id } = action.payload;
-      state.resName = name;
+    setRestuId: (state, action) => {
+      const id  = action.payload;
       state.resId = id;
     },
 
@@ -45,7 +44,7 @@ export const activateSlice = createSlice({
   },
 });
 
-export const { setRes, setOder, deleteOder, setOderDetails, clear } =
+export const { setRestuId, setOder, deleteOder, setOderDetails, clear } =
   activateSlice.actions;
 
 export default activateSlice.reducer;

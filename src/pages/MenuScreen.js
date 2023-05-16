@@ -66,6 +66,7 @@ function MenuScreen() {
                         <MenuCard
                           key={el._id}
                           ids={el._id}
+                          redid={el.redId}
                           name={el.DishName}
                           img={`${process.env.REACT_APP_API_BASE_URL_IMG}${el.Img}`}
                           votes={el.votes || " __"}
