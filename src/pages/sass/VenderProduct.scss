@@ -1,7 +1,6 @@
 .venderProduct {
     height: 100vh;
     width: 98vw;
-    overflow: hidden;
     > .venderProduct__logo {
         margin-left: 10px;
         margin-top: 10px;
@@ -13,5 +12,70 @@
     > .venderProduct__main {
         width: 100vw;
         // display: flex;
+    }
+}
+.VenderProduct__mainCover {
+    margin-top: 60px;
+}
+.VenderProduct__sectionsH2 {
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    color: rgb(75, 75, 75);
+}
+.VenderProduct__generalInformation {
+    display: flex;
+    // border: 2px solid black;
+    align-items: center;
+    > .VenderProduct__generalInformationLeft {
+        > .VenderProduct__generalInformationProfilePhoto {
+            > img {
+                border-radius: 50%;
+                height: 180px;
+            }
+        }
+    }
+    > .VenderProduct__generalInformationRight {
+        margin-left: 40px;
+        > .VenderProduct__generalInformationProfileData {
+            width: 333px;
+            > .VenderProduct__generalInformationProfileDataItem {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+        }
+    }
+}
+.VenderProduct__locationInformation{
+    margin-top: 20px;
+    >.VenderProduct__locationInformationForm{
+>.VenderProduct__locationInformationItem{
+    margin-bottom:20px ;
+}
+    }
+}
+.VenderProduct__MenuCatagories{
+ >.VenderProduct__MenuCatagoriesContainer{
+    width:  600px;
+    > div{
+        margin-bottom: 20px;
+    }
+ }   
+}
+
+.VenderProduct__Menu,.VenderProduct__MenuSaved{
+    >.VenderProduct__MenuForm{
+        width:  600px;
+        > div{
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.VenderProduct__MenuSaved{
+    >.VenderProduct__MenuForm{
+        border: 2px solid rgba(128, 128, 128, 0.214);
+        padding: 10px;
+        border-radius: 10px;
+        margin: 5px;
     }
 }
