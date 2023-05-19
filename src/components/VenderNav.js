@@ -26,7 +26,7 @@ function VenderNav(prams) {
                 ? "visitorsNav__item visitorsNav__active"
                 : "visitorsNav__item"
             }
-            onClick={() => history.push("/vender")}
+            onClick={() => history.push("/vender/oders")}
           >
             <div className="visitorsNav__icon">
               <DashboardOutlined />
@@ -41,7 +41,7 @@ function VenderNav(prams) {
                 ? "visitorsNav__item visitorsNav__active"
                 : "visitorsNav__item"
             }
-            onClick={() => history.push("/venderstat")}
+            onClick={() => history.push("/vender/state")}
           >
             <div className="visitorsNav__icon">
               <BarChartOutlined />
@@ -56,7 +56,7 @@ function VenderNav(prams) {
                 ? "visitorsNav__item visitorsNav__active"
                 : "visitorsNav__item"
             }
-            onClick={() => history.push("/venderproduct")}
+            onClick={() => history.push("/vender/products")}
           >
             <div className="visitorsNav__icon">
               <AddBusinessOutlined />
@@ -71,7 +71,7 @@ function VenderNav(prams) {
                 ? "visitorsNav__item visitorsNav__active"
                 : "visitorsNav__item"
             }
-            onClick={() => history.push("/vendermenu")}
+            onClick={() => history.push("/vender/menu")}
           >
             <div className="visitorsNav__icon">
               <MenuBookRounded />
